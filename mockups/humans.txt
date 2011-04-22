@@ -1,0 +1,18 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Author and Editor: Martin Richard
+  Site: wwW.martiusweb.net
+  Twitter: MartiusWeb
+  Location: Lyon, France
+
+/* THANKS */
+  Names (& URL): Html5 boilerplate auhors,
+    @nicalsilva, @padenot, @piranade
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, Html5 boilerplate
+  Software: Vim !
