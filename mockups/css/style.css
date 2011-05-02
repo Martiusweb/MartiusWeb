@@ -250,6 +250,9 @@ div#stream > section {
   margin: 20px 0;
   border-top: 1px #EEEEEE solid;
 }
+div#stream > section.hot > p.date{
+  background-color: #FFFEED;
+}
 div#stream > section > p.date {
   display: inline;
   position: relative;
@@ -258,7 +261,7 @@ div#stream > section > p.date {
   right: 25px;
   padding: 2px 5px 2px 20px;
   color: #79A6D8;
-  background: white url('../imgs/icons/16/update.png') no-repeat 0 50%;
+  background: #FFFFFF url('../imgs/icons/16/update.png') no-repeat 0 50%;
   border: 1px #CCCCCC solid;
   box-shadow: 2px 2px 0 #CCCCCC;
 }
