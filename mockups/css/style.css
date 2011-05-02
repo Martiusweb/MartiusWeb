@@ -150,14 +150,14 @@ p.icoTwitter, p.icoFacebook {
 	background-repeat: no-repeat;
 	padding-left: 20px;
 }
-p.icoTwitter { background-image: url('../imgs/icons/twitter_16.png'); }
-p.icoFacebook { background-image: url('../imgs/icons/facebook_16.png'); }
+p.icoTwitter { background-image: url('../imgs/icons/16/twitter.png'); }
+p.icoFacebook { background-image: url('../imgs/icons/16/facebook.png'); }
 
 /* Main Aside */
 #main > aside {
   display: table-cell;
   width: 180px;
-  padding: 10px 0;
+  border-right: 1px #CCCCCC solid;
 }
 #main > aside > section {
   margin: 5px 0;
@@ -167,13 +167,100 @@ p.icoFacebook { background-image: url('../imgs/icons/facebook_16.png'); }
 #main > section.content {
   display: table-cell;
   vertical-align: top;
-  padding: 10px;
+  padding: 20px;
+}
+#main > section.content > div.contentBlock {
+   border-bottom: 1px #CCCCCC solid;
 }
 #main > section.content p {
-  margin: 10px 0;
+  margin: 15px 0;
 }
-#main > section.content p:first-child {
-  margin-top: 0;
+#main > section.content h1 {
+  font-size: 1.3em;
+  padding: 5px 2px;
+  color: #8E99A6;
+}
+
+/* Title icons */
+#main > section.content > h1 {
+  padding-left: 28px;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+body.feed section.content > h1 {
+  background-image: url('../imgs/icons/24/feed.png');
+}
+
+/* Stream Filters */
+nav#streamFilters {
+  background: #F5F3F4;
+  border: 1px #CCCCCC solid;
+  border-width: 1px 0;
+}
+nav#streamFilters ul.bookmarks {
+  width: 100%;
+  height: 16px;
+}
+nav#streamFilters ul.bookmarks > li {
+  display: table-cell;
+  text-align: center;
+}
+nav#streamFilters ul.bookmarks a {
+  color: #A9A7A8;
+  text-decoration: none;
+  text-shadow: 0 1px #FFFFFF;
+  position: relative;
+  z-index: 2;
+}
+nav#streamFilters ul.bookmarks a + p {
+  margin: 0 2px;
+  padding: 5px;
+  font-size: 0.9em;
+  background: #E8EDF3;
+  border: 1px solid #79A6D8;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #CCCCCC;
+  color: #79A6D8;
+  float: left;
+  position: relative;
+  z-index: 1;
+  bottom: 15px;
+  opacity: 0;
+  -moz-transition-property: opacity, bottom;
+  -moz-transition-duration: 300ms;
+  -moz-transition-timing-function: ease;
+}
+nav#streamFilters ul.bookmarks a:hover + p {
+  opacity: 1;
+  bottom: 0;
+}
+nav#streamFilters ul.bookmarks a:hover {
+  color: #7A7A7A;
+}
+nav#streamFilters ul.bookmarks a.customize {
+  color: #7A7A7A;
+  font-weight: bold;
+} /*#FFFEED;*/
+nav#streamFilters form {
+  padding: 10px;
+}
+
+/* Stream content */
+div#stream > section {
+  margin: 20px 0;
+  border-top: 1px #EEEEEE solid;
+}
+div#stream > section > p.date {
+  display: inline;
+  position: relative;
+  z-index: 0;
+  bottom: 8px;
+  right: 25px;
+  padding: 2px 5px 2px 20px;
+  color: #79A6D8;
+  background: white url('../imgs/icons/16/update.png') no-repeat 0 50%;
+  border: 1px #CCCCCC solid;
+  box-shadow: 2px 2px 0 #CCCCCC;
 }
 /* /Msw */
 
@@ -199,6 +286,7 @@ p.icoFacebook { background-image: url('../imgs/icons/facebook_16.png'); }
 @media screen and (max-device-width: 480px) {
 
   /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+  /* delete or move aside content */
 }
 
 

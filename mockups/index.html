@@ -25,8 +25,10 @@
   of the site please).
   This mockup is based on the HTML5 Boilerplate, which is actualy a realy
   awesome piece of HTML for Paul Irish and al.
+  This mockup has not been designed for speed and cross-browser compatibility !
+  You shall want to use Firefox 4+ for best experience.
 -->
-<body>
+<body class="home feed">
 	<div id="container">
 		<header>
       <a href="/" class="ir">Martius Web</a>
@@ -43,56 +45,96 @@
         </section>
         <section class="social">
       		<a href="http://www.facebook.com/martiusweb"><img
-          src="imgs/icons/facebook_32.png" alt="La Page Martius Web sur
+          src="imgs/icons/32/facebook.png" alt="La Page Martius Web sur
           Facebook" title="Martius Web sur Facebook"></a>
       		<a href="http://www.twitter.com/Martiusweb"><img
-          src="imgs/icons/twitter_32.png"
+          src="imgs/icons/32/twitter.png"
           alt="Mon compte Twitter" title="MartiusWeb sur Twitter"></a>
-      		<a href="http://github.com/Martiusweb"><img src="imgs/icons/github_32.png"
+      		<a href="http://github.com/Martiusweb"><img src="imgs/icons/32/github.png"
           alt="Mes dépôts Git sur Github" title="Mon code est sur github !"></a>
         </section>
       </aside>
       <!-- Filters (navigation) -->
       <section class="content">
+        <h1>My activity feed</h1>
         <nav id="streamFilters">
+          <!-- h2>Filters :</h2 -->
+          <form action="javascript:;" method="get">
+            <ul class="bookmarks">
+              <li>
+                <a href="javascript:;">Blog posts</a>
+                <p>Display or hide blog posts</p>
+              </li>
+              <li>
+                <a href="javascript:;">Tweets</a>
+                <p>Display or hide microblogging content</p>
+              </li>
+              <li>
+                <a href="javascript:;">Shared links</a>
+                <p>Display or hide links I favorited or shared</p>
+              </li>
+              <li>
+                <a href="javascript:;">Shared music</a>
+                <p>Display or hide music I favorited or shared</p>
+              </li>
+              <li>
+                <a href="javascript:;" class="customize">Customize</a>
+                <p>Create your own filter !</p>
+              </li>
+            </ul>
+            <!-- fieldset>
+              <legend>Sources</legend>
+
+            </fieldset>
+            <p><button type="submit">OK</button></p -->
+          </form>
         </nav>
         <!-- Stream page -->
-        <div id="stream">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          scelerisque nisi non ante fringilla blandit. Maecenas odio odio,
-          tincidunt ac ullamcorper et, pretium quis enim. Etiam pulvinar semper
-          lorem at iaculis. Integer sagittis, turpis in sodales varius, leo nisi
-          pretium justo, et mollis sapien sapien nec lorem. Curabitur vestibulum
-          placerat interdum. Vivamus eu elit justo, eget sagittis dolor. Nam
-          eget massa eget arcu tempor gravida eu eu felis. Vivamus non urna
-          libero, eu vestibulum dui. Maecenas elementum, felis ac sodales
-          pharetra, augue purus adipiscing lorem, eleifend ultrices tortor urna
-          eu est. Donec justo magna, tempor ut laoreet a, lacinia eget mi. Nunc
-          nec lacus eu libero bibendum hendrerit.</p>
-          <p>Mauris molestie imperdiet laoreet. Mauris ut neque lectus. Vivamus
-          ultrices gravida enim ut elementum. Praesent malesuada, ligula at
-          mollis mattis, purus libero vestibulum augue, at scelerisque quam dui
-          eleifend mauris. Maecenas et risus et quam pulvinar luctus ac nec mi.
-          Nullam et turpis nibh. Nullam augue libero, fringilla at consectetur
-          sed, malesuada non metus. Sed quis nisi eu eros pharetra pellentesque
-          non ut erat. Suspendisse luctus eros a dolor facilisis ac lobortis dui
-          tempor. Cras ac dui vitae odio mollis auctor. Integer in egestas ante.
-          Nulla nibh nibh, euismod mattis imperdiet a, suscipit in enim. Morbi
-          fringilla vestibulum neque non facilisis. Phasellus a sapien non metus
-          eleifend venenatis. Cras sit amet nulla enim, id posuere urna. Donec
-          eget dui sit amet elit tincidunt venenatis quis id tortor. Praesent id
-          nisi risus.</p>
-          <p>Cras ante mi, euismod at ornare eu, laoreet id elit. Curabitur quis
-          nibh lacus. Aenean blandit, est eu dapibus pellentesque, urna leo
-          sagittis velit, vel dictum dui metus et tellus. Mauris fringilla
-          eleifend leo et dapibus. Donec tristique malesuada vulputate.
-          Phasellus adipiscing placerat ligula nec mattis. Mauris rhoncus, nibh
-          eu luctus commodo, enim est egestas sapien, in tincidunt diam risus id
-          lacus. Phasellus dapibus convallis posuere. Maecenas tempor molestie
-          diam, dignissim blandit leo convallis eu. Sed mi metus, vehicula ut
-          euismod vitae, posuere et felis. Nunc ligula purus, consectetur a
-          mattis vitae, lobortis ut massa. Etiam iaculis pharetra elit id
-          vestibulum.</p>
+        <div class="contentBlock" id="stream">
+          <section class="hot">
+            <p class="date">Less than a minute ago</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+            scelerisque nisi non ante fringilla blandit. Maecenas odio odio,
+            tincidunt ac ullamcorper et, pretium quis enim. Etiam pulvinar semper
+            lorem at iaculis. Integer sagittis, turpis in sodales varius, leo nisi
+            pretium justo, et mollis sapien sapien nec lorem. Curabitur vestibulum
+            placerat interdum. Vivamus eu elit justo, eget sagittis dolor. Nam
+            eget massa eget arcu tempor gravida eu eu felis. Vivamus non urna
+            libero, eu vestibulum dui. Maecenas elementum, felis ac sodales
+            pharetra, augue purus adipiscing lorem, eleifend ultrices tortor urna
+            eu est. Donec justo magna, tempor ut laoreet a, lacinia eget mi. Nunc
+            nec lacus eu libero bibendum hendrerit.</p>
+          </section>
+          <section>
+            <p class="date">One hour ago</p>
+            <p>Mauris molestie imperdiet laoreet. Mauris ut neque lectus. Vivamus
+            ultrices gravida enim ut elementum. Praesent malesuada, ligula at
+            mollis mattis, purus libero vestibulum augue, at scelerisque quam dui
+            eleifend mauris. Maecenas et risus et quam pulvinar luctus ac nec mi.
+            Nullam et turpis nibh. Nullam augue libero, fringilla at consectetur
+            sed, malesuada non metus. Sed quis nisi eu eros pharetra pellentesque
+            non ut erat. Suspendisse luctus eros a dolor facilisis ac lobortis dui
+            tempor. Cras ac dui vitae odio mollis auctor. Integer in egestas ante.
+            Nulla nibh nibh, euismod mattis imperdiet a, suscipit in enim. Morbi
+            fringilla vestibulum neque non facilisis. Phasellus a sapien non metus
+            eleifend venenatis. Cras sit amet nulla enim, id posuere urna. Donec
+            eget dui sit amet elit tincidunt venenatis quis id tortor. Praesent id
+            nisi risus.</p>
+          </section>
+          <section>
+            <p class="date">Today</p>
+            <p>Cras ante mi, euismod at ornare eu, laoreet id elit. Curabitur quis
+            nibh lacus. Aenean blandit, est eu dapibus pellentesque, urna leo
+            sagittis velit, vel dictum dui metus et tellus. Mauris fringilla
+            eleifend leo et dapibus. Donec tristique malesuada vulputate.
+            Phasellus adipiscing placerat ligula nec mattis. Mauris rhoncus, nibh
+            eu luctus commodo, enim est egestas sapien, in tincidunt diam risus id
+            lacus. Phasellus dapibus convallis posuere. Maecenas tempor molestie
+            diam, dignissim blandit leo convallis eu. Sed mi metus, vehicula ut
+            euismod vitae, posuere et felis. Nunc ligula purus, consectetur a
+            mattis vitae, lobortis ut massa. Etiam iaculis pharetra elit id
+            vestibulum.</p>
+          </section>
         </div>
       </section>
 		</div>
@@ -100,7 +142,7 @@
 		<footer>
       <div class="wrapper">
       <div>
-	  	  <h2>Mais aussi...</h2>
+	  	  <h2>Further readings</h2>
         <ol>
 					<li><a href="#">Mise à jour du firmware d'un Creative Zen Touch</a></li>
 					<li><a href="#">Quelles solutions pour gérer la vue avec PHP ?</a></li>
@@ -108,7 +150,7 @@
 				</ol>
     	</div>
 	    <div>
-    		<h2>Liens connexes</h2>
+    		<h2>Related links</h2>
 		    <ol>
     			<li><a href="legal.html">Mentions légales</a></li>
 		    	<li><a href="map.html">Plan du site</a></li>
@@ -118,20 +160,24 @@
     		</ol>
       </div>
       <div>
-        <h2>Social</h2>
-        <p class="icoTwitter">Dernier tweet :</p>
-        <p>Chargement des tweets</p>
-        <p class="icoFacebook"><a href="#">On est même sur Facebook</a></p>
+        <h2>Licenses</h2>
+          <p>Except when notified, the content is under license
+          <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+          Commons BY-NC-SA</a>.</p>
+          <p>Martius Web logo and other related designation are under license
+          <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative
+            Commons BY-NC-ND</a>.</p>
       </div>
       <div>
-        <h2>A propos</h2>
+        <h2>About</h2>
         <p>
-          <a href="http://www.martiusweb.net">Martius Web</a>, site personnel de
-          Martin Richard tourne sous <em>UntilNao</em>.</p>
-          <p>Les tutoriaux et articles mis à disposition sur ce site sont placés sous licence
-          <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">Creative Commons BY-NC-SA (France)</a>.</p>
-          <p>Les icônes "social network" on été réalisée par
-          <a href="http://www.komodomedia.com/blog/2009/06/social-network-icon-pack/">Komodomedia</a>.</p>
+          <a href="http://www.martiusweb.net">Martius Web</a>, Martin Richard's
+          page is powered by <em>UntilNao</em> (Node.js + Nginx + git).</p>
+          <p>Icons are provided by the <a
+            href="http://tiheum.deviantart.com/art/Faenza-Icons-173323228">Faenza
+            theme</a> and <a
+          href="http://www.komodomedia.com/blog/2009/06/social-network-icon-pack/">Komodomedia
+      Social Icons Pack</a>.</p>
       </div>
     </div>
 		</footer>
