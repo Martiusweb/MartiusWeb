@@ -250,10 +250,10 @@ div#stream > section {
   margin: 20px 0;
   border-top: 1px #EEEEEE solid;
 }
-div#stream > section.hot > p.date{
+div#stream > section.hot > h2.date{
   background-color: #FFFEED;
 }
-div#stream > section > p.date {
+div#stream > section > h2.date {
   display: inline;
   position: relative;
   z-index: 0;
@@ -264,7 +264,50 @@ div#stream > section > p.date {
   background: #FFFFFF url('../imgs/icons/16/update.png') no-repeat 0 50%;
   border: 1px #CCCCCC solid;
   box-shadow: 2px 2px 0 #CCCCCC;
+  font-weight: normal;
 }
+div#stream ol.streamItems {
+  margin-left: 0;
+}
+div#stream ol.streamItems > li {
+  list-style: none;
+  padding-left: 28px;
+  min-height: 24px;
+  margin: 5px 0;
+  background-repeat: no-repeat;
+}
+div#stream p.provider {
+  margin: 0;
+  font-size: 0.9em;
+}
+div#stream p.provider a {
+  text-decoration: none;
+}
+div#stream ol.streamItems h3 {
+  font-weight: normal;
+}
+div#stream ol.streamItems h3 a {
+  color: #79A6D8;
+  text-decoration: none;
+  text-shadow: 0 1px #EFEFEF;
+}
+div#stream ol.streamItems h3 a:hover {
+  background-color: #FFFEED;
+}
+/*Stream items*/
+div#stream ol.streamItems > li.sharedLink {
+  background-image: url('../imgs/icons/24/folder-bookmarks.png');
+}
+div#stream ol.streamItems > li.sharedMusic {
+  background-image: url('../imgs/icons/24/folder-music.png');
+}
+div#stream ol.streamItems > li.blogPost {
+  background-image: url('../imgs/icons/24/folder-documents.png');
+}
+div#stream ol.streamItems > li.blogPost h3 {
+  font-size: 2em;
+}
+
 /* /Msw */
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }

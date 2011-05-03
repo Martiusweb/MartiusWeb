@@ -92,45 +92,76 @@
         <!-- Stream page -->
         <div class="contentBlock" id="stream">
           <section class="hot">
-            <p class="date">Less than a minute ago</p>
+            <h2 class="date">Less than a minute ago</h2>
             <div class="contentBlock">
-            <div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-              scelerisque nisi non ante fringilla blandit. Maecenas odio odio,
-              tincidunt ac ullamcorper et, pretium quis enim. Etiam pulvinar semper
-              lorem at iaculis. Integer sagittis, turpis in sodales varius, leo nisi
-              pretium justo, et mollis sapien sapien nec lorem. Curabitur vestibulum
-              placerat interdum. Vivamus eu elit justo, eget sagittis dolor. Nam
-              eget massa eget arcu tempor gravida eu eu felis. Vivamus non urna
-              libero, eu vestibulum dui. Maecenas elementum, felis ac sodales
-              pharetra, augue purus adipiscing lorem, eleifend ultrices tortor urna
-              eu est. Donec justo magna, tempor ut laoreet a, lacinia eget mi. Nunc
-              nec lacus eu libero bibendum hendrerit.</p>
-            </div>
+              <ol class="streamItems">
+                <li class="sharedMusic">
+                  <h3>I just favorited <a
+                    href="http://hypem.com/#!/item/1aw3v">Edwin Van Cleef -
+                    Lisztomania (feat. Jane Hanley)</a></h3>
+                  <p class="provider hypem rss">on <a href="http://hypem.com">Hype
+                    Machine</a></p>
+                </li>
+                <li class="sharedLink">
+                 <h3>I bumped a link : <a
+                     href="http://blargh.tommymontgomery.com/2010/07/php-is-dead/">PHP
+                     is Dead</a></h3>
+                 <p class="provider reddit">on <a
+                   href="http://reddit.com">Reddit</a></p>
+              </ol>
             </div>
           </section>
           <section>
-            <p class="date">One hour ago</p>
+            <h2 class="date">One hour ago</h2>
             <div class="contentBlock">
-            <div>
-              <p>Mauris molestie imperdiet laoreet. Mauris ut neque lectus. Vivamus
-              ultrices gravida enim ut elementum. Praesent malesuada, ligula at
-              mollis mattis, purus libero vestibulum augue, at scelerisque quam dui
-              eleifend mauris. Maecenas et risus et quam pulvinar luctus ac nec mi.
-              Nullam et turpis nibh. Nullam augue libero, fringilla at consectetur
-              sed, malesuada non metus. Sed quis nisi eu eros pharetra pellentesque
-              non ut erat. Suspendisse luctus eros a dolor facilisis ac lobortis dui
-              tempor. Cras ac dui vitae odio mollis auctor. Integer in egestas ante.
-              Nulla nibh nibh, euismod mattis imperdiet a, suscipit in enim. Morbi
-              fringilla vestibulum neque non facilisis. Phasellus a sapien non metus
-              eleifend venenatis. Cras sit amet nulla enim, id posuere urna. Donec
-              eget dui sit amet elit tincidunt venenatis quis id tortor. Praesent id
-              nisi risus.</p>
-            </div>
+            <ol class="streamItems">
+              <li class="blogPost">
+                <h3><a href="#">Zsh for the shell nerds</a></h3>
+                <p class="provider blog tag_tools tag_linux">
+                  Posted on this blog with tags <a
+                  href="javascript:;">tools</a>, <a
+                  href="javascript:;">Linux</a>
+                </p>
+                <article lang="fr">
+                  <p>Il y a quelques semaines mes amis Paul et Nicolas m’ont
+                  encouragé a essayé une alternative à Bash, le shell que nous
+                  utilisons généralement tous par défaut. Le changement s’est
+                  pratiquement fait directement (je suis un gros utilisateur de
+                  la console).</p>
+                  <p>Changer de shell dans la console, c’est comme changer
+                  d’environnement de bureau (GNOME, Kde, etc)&nbsp;: globalement
+                  c’est la même chose, mais la manière dont ils sont présentés
+                  va varier. Alors Zsh, ça apporte quoi par rapport à
+                  Bash&nbsp;?</p>
+                  <p>Concrètement, on peut le voir comme une surcouche&nbsp;: la
+                  syntaxe des commandes ne change pas énormément. Les
+                  principales fonctionnalités qui vous feront basculer sont
+                  celles qui apparaissent en mode interactif&nbsp;:</p>
+                  <ul>
+                    <li>l’auto-complétion/complétement (<a hreflang="fr"
+                      href="http://fr.wikipedia.org/wiki/Compl%C3%A8tement">faites
+                    votre choix sur la terminologie</a>) est vraiment puissant
+                    et paramétrable,</li>
+                    <li>la correction des commandes est magique, et évite de
+                    retaper de longues commandes pour une faute de frappe,</li>
+                    <li>une meilleure gestion de l’historique des commandes.</li>
+                  </ul>
+                  <p>En plus, zsh supporte de nombreux plugins et supporte un
+                  mécanisme de thèmes, dont une impressionnante collection est
+                  maintenue sur un dépôt github dans un projet appelé <a
+                  hreflang="en"
+                  href="https://github.com/robbyrussell/oh-my-zsh">Oh-My-Zsh</a>.
+                  Il suffit de cloner le dépôt en local, de suivre le Readme, et de
+                  choisir <a hreflang="en"
+                  href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">son
+                  thème</a> pour qu’en quelques minutes, Zsh soit adopté&nbsp;!</p>
+                </article>
+              </li>
+            </ol>
             </div>
           </section>
           <section>
-            <p class="date">Today</p>
+            <h2 class="date">Today</h2>
             <div class="contentBlock">
             <div>
               <p>Cras ante mi, euismod at ornare eu, laoreet id elit. Curabitur quis
