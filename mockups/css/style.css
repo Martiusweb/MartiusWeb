@@ -229,6 +229,12 @@ nav#streamFilters ul.bookmarks a + p {
   -moz-transition-property: opacity, bottom;
   -moz-transition-duration: 300ms;
   -moz-transition-timing-function: ease;
+  -o-transition-property: opacity, bottom;
+  -o-transition-duration: 300ms;
+  -o-transition-timing-function: ease;
+  -webkit-transition-property: opacity, bottom;
+  -webkit-transition-duration: 300ms;
+  -webkit-transition-timing-function: ease;
 }
 nav#streamFilters ul.bookmarks a:hover + p {
   opacity: 1;
@@ -275,6 +281,7 @@ div#stream ol.streamItems > li {
   min-height: 24px;
   margin: 5px 0;
   background-repeat: no-repeat;
+  background-position: 0 4px;
 }
 div#stream p.provider {
   margin: 0;
@@ -295,6 +302,9 @@ div#stream ol.streamItems h3 a:hover {
   background-color: #FFFEED;
 }
 /*Stream items*/
+div#stream ol.streamItems > li.status {
+  background-image: url('../imgs/icons/24/folder-remote.png');
+}
 div#stream ol.streamItems > li.sharedLink {
   background-image: url('../imgs/icons/24/folder-bookmarks.png');
 }
@@ -306,6 +316,24 @@ div#stream ol.streamItems > li.blogPost {
 }
 div#stream ol.streamItems > li.blogPost h3 {
   font-size: 2em;
+}
+/*Data providers*/
+div#stream p.provider a {
+  background-position: right;
+  background-repeat: no-repeat;
+  padding: 1px 20px 1px 0;
+}
+div#stream p.provider.twitter a {
+  background-image: url('../imgs/icons/16/twitter.png');
+}
+div#stream p.provider.reddit a {
+  background-image: url('../imgs/icons/16/reddit.png');
+}
+div#stream p.provider.hypem a {
+  background-image: url('../imgs/icons/16/hypem.png');
+}
+div#stream p.provider.blog a {
+  padding: 0;
 }
 
 /* /Msw */
