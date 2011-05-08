@@ -229,6 +229,7 @@
     padding: 3px;
     border-top: 1px #CCCCCC solid;
     background: #EFEFEF;
+    text-align: center;
   }
   body { margin-bottom: 30px; }
 
@@ -258,14 +259,8 @@
       do { o += obj.offsetTop; } while(obj = obj.offsetParent);
       return o;
     };
-    this.fireNewContent = function(e) {
-      // Get the latest
+    var fireNewContent = function(latest) {
       var streamDomElt = document.getElementById('stream');
-      var latest = streamDomElt.children[0];
-      // To be like in "real world", I remove it from the dom
-      latest.parentNode.removeChild(latest);
-
-      // Now this is the "real-life" code
       var topContent = streamDomElt.children[0];
       // Current top position of the latest content
       var currentOffset = getOffsetTop(topContent);
@@ -302,11 +297,32 @@
       if(!Modernizr.csstransitions)
         afterTopContentMoves();
     };
+    this.fireNewContent = fireNewContent;
+    var goFireNewContentRunning = false;
+    this.goFireNewContent = function(e) {
+      if(goFireNewContentRunning)
+        return;
+      goFireNewContentRunning = true;
+      var streamDomElt = document.getElementById('stream');
+      var latest = streamDomElt.children[0];
+      // To be like in "real world", I remove it from the dom
+      latest.parentNode.removeChild(latest);
+
+      // Countdown
+      e.text += ' (2)';
+      setTimeout(function() {
+        e.text = e.text.substr(0, e.text.length-3) + '(1)';
+        setTimeout(function() {
+          e.text = e.text.substr(0, e.text.length-4);
+          goFireNewContentRunning = false;
+          fireNewContent(latest); }, 1000);
+      }, 1000);
+    };
     document.getElementById('stream').children[0].style.opacity = 1;
   })();
   </script>
   <div id="_testBox">
-    <p><a href="javascript:fireNewContent();">Add item to the feed</a></p>
+    <p><a href="javascript:;" onclick="goFireNewContent(this)">Add item to the feed</a></p>
   </div>
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
