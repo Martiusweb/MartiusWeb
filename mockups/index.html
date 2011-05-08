@@ -231,52 +231,79 @@
     background: #EFEFEF;
   }
   body { margin-bottom: 30px; }
-  section.hot > div.contentBlock {
-    overflow: hidden;
+
+  /* Transition = move the new content */
+  div#stream > section.moving {
+    -moz-transition: margin-top 200ms ease;
+    -o-transition: margin-top 200ms ease;
+    -webkit-transition: margin-top 200ms ease;
   }
-  section > p.date {
-    -moz-transition: background-color 2.5s;
+  div#stream > section.hot {
+    opacity: 0;
+    -moz-transition: opacity 200ms ease;
+    -o-transition: opacity 200ms ease;
+    -webkit-transition: opacity 200ms ease;
   }
-  section.hot > div.contentBlock {
-    -moz-transition-property: height;
-    -moz-transition-duration: 300ms;
-    -moz-transition-timing-function: ease-in;
-  }
-  section.hot > div.contentBlock.new {
-    height: 0;
+  div#stream > section > h2 {
+    -moz-transition: background-color 3s linear;
+    -o-transition: background-color 3s linear;
+    -webkit-transition: background-color 3s linear;
   }
   </style>
   <script>
-    (function() {
-      this.fireNewContent = function() {
-        var el = document.getElementById('stream').children[0].children[1];
-        var wrapper = el.children[0];
-        var canonicalClassName = ""+el.className;
-        el.className += " new";
-        var destHeight = wrapper.offsetHeight;
+  (function()
+  {
+    var getOffsetTop = function(obj) {
+      var o = 0;
+      do { o += obj.offsetTop; } while(obj = obj.offsetParent);
+      return o;
+    };
+    this.fireNewContent = function(e) {
+      // Get the latest
+      var streamDomElt = document.getElementById('stream');
+      var latest = streamDomElt.children[0];
+      // To be like in "real world", I remove it from the dom
+      latest.parentNode.removeChild(latest);
 
-        if(wrapper.children.length > 0) {
-          var props = window.getComputedStyle(wrapper.children[0], null);
-          destHeight += parseInt(props.getPropertyValue('margin-top')) +
-            parseInt(props.getPropertyValue('border-top-width'));
+      // Now this is the "real-life" code
+      var topContent = streamDomElt.children[0];
+      // Current top position of the latest content
+      var currentOffset = getOffsetTop(topContent);
+      // add latest to the dom
+      streamDomElt.insertBefore(latest, topContent);
+      // Get the offset difference = height we will fill
+      var offsetDiff = getOffsetTop(streamDomElt.children[1]) - currentOffset;
 
-          /* Mmmh firebug told 126px by default, and after the calculation, I
-             must set 111px in order to get the right value. I may try using
-             max-height instead... */
-          /*props = window.getComputedStyle(wrapper.children[wrapper.children.length-1], null);
-          destHeight += parseInt(props.getPropertyValue('margin-top')) +
-            parseInt(props.getPropertyValue('border-bottom-width'));*/
-        }
+      // latest must not be visible
+      latest.style.display = 'none';
 
-        el.addEventListener('transitionend', function() {
-          el.className = canonicalClassName;
-          /*el.style.height = null;*/ /* Potential bug FF4 : if deactivating
-          computed height, the "auto" height looks to be false. */
-          el.parentNode.className = el.parentNode.className.replace('hot', '');
-        }, false);
-        el.style.height = destHeight + 'px';
+      // display latest when transition for topCotent is done
+      // tofix : gracefull degradation for browser not supporting transitions.
+      var afterTopContentMoves = function() {
+        topContent.className = topContent.className.replace(' moving', '');
+        topContent.style.marginTop = topContentMargin + 'px';
+        latest.style.display = 'block';
+        // workaround, without the timeout, opacity effect can't be viewed (ff)
+        window.setTimeout(function() {
+          latest.style.opacity = 1;
+          latest.className = latest.className.replace('hot', '');
+        }, 0);
+
       };
-     })();
+      topContent.addEventListener('transitionend', afterTopContentMoves, true);
+      topContent.addEventListener('OTransitionEnd', afterTopContentMoves, true);
+      topContent.addEventListener('webkitTransitionEnd', afterTopContentMoves, true);
+
+      // topContent will move
+      topContent.className += ' moving';
+      var topContentMargin = parseInt(window.getComputedStyle(topContent,
+          null).getPropertyValue('margin-top'));
+      topContent.style.marginTop = (topContentMargin+offsetDiff)+'px';
+      if(!Modernizr.csstransitions)
+        afterTopContentMoves();
+    };
+    document.getElementById('stream').children[0].style.opacity = 1;
+  })();
   </script>
   <div id="_testBox">
     <p><a href="javascript:fireNewContent();">Add item to the feed</a></p>
