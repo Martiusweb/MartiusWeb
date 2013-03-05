@@ -1,0 +1,9 @@
+# Temps
+*~
+*.sw[op]
+
+# Generated files
+css/styles.css
+js/bootstrap*
+js/jquery.js
+img/glyphicons-halflings*.png
