@@ -4,3 +4,104 @@
  * @license GNU/GPLv2
  */
 
+@import "variables.less";
+@import "../vendor/bootstrap/less/mixins.less";
+
+// Containers
+header.container {
+    border-top: 0;
+    border-radius: 0 0 @containerRadius @containerRadius;
+
+    color: @white;
+    background-color: @midnightBlue;
+
+    h1 {
+        margin: 1em 0 .2em 0;
+        text-align: center;
+        font-size: 52px;
+
+        font-family: "Roboto", @sansFontFamily;
+        font-weight: 100;
+    }
+    h1 + p {
+        text-align: center;
+        font-size: 19px;
+    }
+
+    // Reset navbar styles, might be a good idea to clean navbar instead of
+    // overriding
+    nav.navbar-inverse {
+        .navbar-inner {
+            box-shadow: none;
+            background: transparent;
+            border: 0;
+
+            .nav {
+                margin: 0 auto;
+                text-align: center;
+                float: none;
+
+                li {
+                    float: none;
+                    display: inline-block;
+                }
+
+                .active > a, .active > a:hover {
+                    background: transparent;
+                    box-shadow: none;
+                }
+
+                a {
+                    .transition(background-color @shortDelay ease);
+                    .transition(color @shortDelay ease);
+                }
+
+                a:hover {
+                    background-color: @wetAsphalt;
+                    border-radius: @containerRadius;
+                }
+            }
+        }
+    }
+}
+
+// Sticky footer
+@footerHeight: 60px;
+
+html, body {
+    height: 100%;
+}
+
+div#stickyWrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -@footerHeight;
+}
+
+#push, footer.container {
+height: @footerHeight;
+}
+
+// Footer design
+footer.container {
+    background: @clouds;
+    border-bottom: 0;
+    border-radius: @containerRadius @containerRadius 0 0;
+
+    font-size: @fontSizeSmall;
+    color: @asbestos;
+
+    section {
+        padding: 1em 0;
+
+        p, h1, h2, h3 {
+            margin: auto 1em;
+        }
+    }
+}
+
+// Main content
+div.container[role="main"] {
+    margin: @containerMargin auto;
+}

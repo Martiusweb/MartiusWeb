@@ -7,12 +7,72 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="author" content="Martin Richard">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100|Lato">
 </head>
 
 <body>
-    <section>
-        <h1>Martin Richard</h1>
-        <p>Hello, I'm Martin. This is my webpage.</p>
-    </section>
+<div id="stickyWrap">
+    <header class="container">
+        <section>
+            <h1>Martin Richard</h1>
+            <p>Hello, I'm Martin, and this is my webpage.</p>
+            </section>
+
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-inner">
+            <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#aboutme">About me</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#code">Code</a></li>
+                <li><a href="#misc">Misc</a></li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" role="main">
+        <section id="aboutme">
+            <h1>About me</h1>
+            <p>foo!</p>
+        </section>
+
+        <section id="contact">
+            <h1>Contact</h1>
+            <p>foo!</p>
+        </section>
+
+        <section id="code">
+            <h1>Code</h1>
+            <p>foo!</p>
+        </section>
+
+        <section id="misc">
+            <h1>Misc</h1>
+            <p>foo!</p>
+        </section>
+    </div>
+
+    <div id="push"></div>
+</div>
+
+<footer class="container">
+    <div class="row">
+        <section class="span6">
+            <p>This is the webpage of Martin Richard.</p>
+            <p>My nickname is <em>Martius</em>, and often <em>Martiusweb</em>
+            online.</p>
+        </section>
+        <section class="span6">
+            <p>Code is under GNU/GPLv2, content is under CC BY-NC-SA.</p>
+            <p>Built with
+                <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>,
+                <a href="http://designmodo.github.com/Flat-UI/">Flat</a>,
+                GNU/Make, git and
+                <a href="http://blog.getpelican.com/">Pelican</a>.
+        </section>
+    </div>
+</footer>
 </body>
 </html>
