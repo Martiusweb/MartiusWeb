@@ -52,18 +52,30 @@ header.container {
                 }
 
                 .active > a, .active > a:hover {
-                    background: transparent;
                     box-shadow: none;
                 }
 
                 a {
-                    .transition(background-color @shortDelay ease);
-                    .transition(color @shortDelay ease);
+                    border-radius: @containerRadius;
+                    background-color: @midnightBlue;
+                    .transition(~"background-color @{shortDelay} ease, color @{shortDelay} ease");
                 }
 
-                a:hover {
-                    background-color: @wetAsphalt;
-                    border-radius: @containerRadius;
+                .active a[href="#"], a[href="#"]:hover {
+                    background-color: @homeColor;
+                }
+
+                .active a[href="#aboutme"], a[href="#aboutme"]:hover {
+                    background-color: @aboutMeColor;
+                }
+                .active a[href="#contact"], a[href="#contact"]:hover {
+                    background-color: @contactColor;
+                }
+                .active a[href="#code"], a[href="#code"]:hover {
+                    background-color: @codeColor;
+                }
+                .active a[href="#misc"], a[href="#misc"]:hover {
+                    background-color: @miscColor;
                 }
             }
         }
@@ -121,6 +133,14 @@ div.container[role="main"] {
     }
 }
 
+// Default timeline style
+.timelineSpineBackground(@color) {
+    background-image: -webkit-linear-gradient(90deg, @color 0%, @color 100%);
+    background-image: -moz-linear-gradient(90deg, @color 0%, @color 100%);
+    background-image: -o-linear-gradient(90deg, @color 0%, @color 100%);
+    background-image: linear-gradient(90deg, @color 0%, @color 100%);
+}
+
 .timeline {
     > ol {
         margin: 0;
@@ -128,18 +148,66 @@ div.container[role="main"] {
         > li {
             list-style: none;
             width: 450px;
-            border: 1px @flatOrange solid;
+            border: 1px @timelineBorderColor solid;
             margin: (@containerMargin * 0.5) 0;
+            position: relative;
+
+            > .arrow, .arrow:after {
+              position: absolute;
+              display: block;
+              width: 0;
+              height: 0;
+              border-color: transparent;
+              border-style: solid;
+            }
+
+            > .arrow {
+              border-width: @popoverArrowOuterWidth;
+            }
+
+            > .arrow:after {
+              border-width: @popoverArrowWidth;
+              content: "";
+            }
 
             &:nth-child(odd) {
                 clear: left;
                 float: left;
 
+                > .arrow {
+                    top: 50%;
+                    right: -@popoverArrowOuterWidth;
+                    margin-top: -@popoverArrowOuterWidth;
+                    border-right-width: 0;
+                    border-left-color: #999; // IE8 fallback
+                    border-left-color: @timelineArrowBorderColor;
+                    &:after {
+                        right: 1px;
+                        border-right-width: 0;
+                        border-left-color: @popoverArrowColor;
+                        bottom: -@popoverArrowWidth;
+                    }
+                }
             }
 
             &:nth-child(even) {
                 clear: right;
                 float: right;
+
+                > .arrow {
+                    top: 50%;
+                    left: -@popoverArrowOuterWidth;
+                    margin-top: -@popoverArrowOuterWidth;
+                    border-left-width: 0;
+                    border-right-color: #999; // IE8 fallback
+                    border-right-color: @timelineArrowBorderColor;
+                    &:after {
+                      left: 1px;
+                      bottom: -@popoverArrowWidth;
+                      border-left-width: 0;
+                      border-right-color: @popoverArrowColor;
+                    }
+                }
             }
         }
     }
@@ -149,9 +217,62 @@ div.container[role="main"] {
     // Draw the line
     background-size: 3px 1px;
     background-repeat: repeat-y;
-    background-image: -webkit-linear-gradient(90deg, @timelineSpineColor 0%, @timelineSpineColor 100%);
-    background-image: -moz-linear-gradient(90deg, @timelineSpineColor 0%, @timelineSpineColor 100%);
-    background-image: -o-linear-gradient(90deg, @timelineSpineColor 0%, @timelineSpineColor 100%);
-    background-image: linear-gradient(90deg, @timelineSpineColor 0%, @timelineSpineColor 100%);
     background-position: center;
+
+    .timelineSpineBackground(@timelineSpineColor);
 }
+
+// Timeline color per category
+.timelineColor(@color) {
+    > ol > li {
+        border: 1px @color solid;
+
+        &:nth-child(odd) > .arrow {
+            border-left-color: @color;
+        }
+
+        &:nth-child(even) > .arrow {
+            border-right-color: @color;
+        }
+    }
+
+    // Draw the line
+    .timelineSpineBackground(lighten(@color, 20%));
+}
+
+#aboutme {
+    h1 {
+        color: @aboutMeColor;
+    }
+    .timeline {
+        .timelineColor(@aboutMeColor);
+    }
+}
+
+#contact {
+    h1 {
+        color: @contactColor;
+    }
+    .timeline {
+        .timelineColor(@contactColor);
+    }
+}
+
+#code {
+    h1 {
+        color: @codeColor;
+    }
+    .timeline {
+        .timelineColor(@codeColor);
+    }
+}
+
+#misc {
+    h1 {
+        color: @miscColor;
+    }
+    .timeline {
+        .timelineColor(@miscColor);
+    }
+}
+
