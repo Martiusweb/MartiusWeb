@@ -122,6 +122,31 @@ div.container[role="main"] {
 }
 
 .timeline {
+    > ol {
+        margin: 0;
+
+        > li {
+            list-style: none;
+            width: 450px;
+            border: 1px @flatOrange solid;
+            margin: (@containerMargin * 0.5) 0;
+
+            &:nth-child(odd) {
+                clear: left;
+                float: left;
+
+            }
+
+            &:nth-child(even) {
+                clear: right;
+                float: right;
+            }
+        }
+    }
+
+    .clearfix();
+
+    // Draw the line
     background-size: 3px 1px;
     background-repeat: repeat-y;
     background-image: -webkit-linear-gradient(90deg, @timelineSpineColor 0%, @timelineSpineColor 100%);
