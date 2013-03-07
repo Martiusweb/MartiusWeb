@@ -170,6 +170,18 @@ div.container[role="main"] {
               content: "";
             }
 
+            > .arrow:before {
+                content: '';
+                display: block;
+                position: relative;
+                bottom: 8px;
+                width: 8px;
+                height: 8px;
+                border: 3px white solid;
+                border-radius: 20px;
+                background-color: @timelinePointColor;
+            }
+
             &:nth-child(odd) {
                 clear: left;
                 float: left;
@@ -186,6 +198,9 @@ div.container[role="main"] {
                         border-right-width: 0;
                         border-left-color: @popoverArrowColor;
                         bottom: -@popoverArrowWidth;
+                    }
+                    &:before {
+                        left: 1px;
                     }
                 }
             }
@@ -207,6 +222,9 @@ div.container[role="main"] {
                       border-left-width: 0;
                       border-right-color: @popoverArrowColor;
                     }
+                    &:before {
+                        right: 15px;
+                    }
                 }
             }
         }
@@ -215,7 +233,7 @@ div.container[role="main"] {
     .clearfix();
 
     // Draw the line
-    background-size: 3px 1px;
+    background-size: 4px 1px;
     background-repeat: repeat-y;
     background-position: center;
 
@@ -233,6 +251,10 @@ div.container[role="main"] {
 
         &:nth-child(even) > .arrow {
             border-right-color: @color;
+        }
+
+        > .arrow:before {
+            background-color: @color;
         }
     }
 
