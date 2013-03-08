@@ -12,6 +12,12 @@
     font-family: "Roboto", @sansFontFamily;
     font-weight: 100;
 }
+.ob {
+  direction: rtl;
+  font-family: Monospace;
+  font-size: 0.8em;
+  unicode-bidi: bidi-override;
+}
 
 // Containers
 header.container {
@@ -149,8 +155,10 @@ div.container[role="main"] {
             list-style: none;
             width: 450px;
             border: 1px @timelineBorderColor solid;
+            border-radius: @containerRadius;
             margin: (@containerMargin * 0.5) 0;
             position: relative;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 
             > .arrow, .arrow:after {
               position: absolute;
@@ -227,6 +235,25 @@ div.container[role="main"] {
                     }
                 }
             }
+
+            h2 {
+                margin: 0;
+                padding: 0 .5em;
+                text-align: center;
+                border: 1px @white solid;
+                border-radius: @containerRadius @containerRadius 0 0;
+                background-color: @timelineColor;
+                color: @white;
+                font-size: 1.2em;
+            }
+
+            article {
+                margin: 1em;
+            }
+
+            .avatar {
+                text-align: center;
+            }
         }
     }
 
@@ -254,6 +281,10 @@ div.container[role="main"] {
         }
 
         > .arrow:before {
+            background-color: @color;
+        }
+
+        h2 {
             background-color: @color;
         }
     }
