@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100|Lato">
 </head>
-
-<body>
-<div id="sticky-wrap">
+<body data-spy="scroll" data-target="header.container .navbar">
+<div id="sticky-wrap" >
+    <a id="home"></a>
     <header class="container">
         <section>
             <h1>Martin Richard</h1>
@@ -23,7 +23,7 @@
         <nav class="navbar navbar-inverse">
             <div class="navbar-inner">
             <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="#home">Home</a></li>
                 <li><a href="#aboutme">About me</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#code">Code</a></li>
@@ -310,13 +310,20 @@
                     </li>
                     <li>
                         <div class="arrow"></div>
-                        <h2>Hobbies</h2>
-                        <p>foo!</p>
-                    </li>
-                    <li>
-                        <div class="arrow"></div>
                         <h2>Cinema</h2>
-                        <p>bar!</p>
+                        <article>
+                        <p>I enjoy cinema and I sometimes write reviews in
+                        French. These reviews are on <a
+                            href="http://feston.fr">Feston.fr</a> or <a
+                            href="http://blog.martiusweb.net">my old blog</a>.</p>
+                        <p>I also wrote an analysis on Christopher Nolan's
+                        movies, in French too. This is an analysis focusing the
+                        construction of the story and the narrative process
+                        Nolan uses in its movies. You can read this on a small
+                        website called <a
+                            href="http://martiusweb.github.com/CinemaDeNolan/">Cinéma
+                            de Nolan</a></p>
+                        </article>
                     </li>
                 </ol>
             </div>
@@ -343,5 +350,8 @@
         </section>
     </div>
 </footer>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/martiusweb.js"></script>
 </body>
 </html>
