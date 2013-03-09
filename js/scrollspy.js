@@ -85,7 +85,7 @@
         for (i = offsets.length; i--;) {
           activeTarget != targets[i]
             && scrollTop >= offsets[i]
-            && (!offsets[i + 1] || scrollTop <= (offsets[i + 1] - 68)) # Hacky hacky
+            && (!offsets[i + 1] || scrollTop <= (offsets[i + 1] - 68))
             && this.activate( targets[i] )
         }
       }
