@@ -71,14 +71,16 @@
     , process: function () {
         var scrollTop = this.$scrollElement.scrollTop() + this.options.offset
           , scrollHeight = this.$scrollElement[0].scrollHeight || this.$body[0].scrollHeight
-            if(scrollHeight < 500) { scrollHeight = 2884 }
+          ,  maxScroll = scrollHeight - this.$scrollElement.height()
 
-        var maxScroll = scrollHeight - this.$scrollElement.height()
-          , offsets = this.offsets
+        if(maxScroll == 0) maxScroll = 2300
+
+        var offsets = this.offsets
           , targets = this.targets
           , activeTarget = this.activeTarget
           , i
 
+        console.log(scrollTop, maxScroll);
         if (scrollTop >= maxScroll) {
           return activeTarget != (i = targets.last()[0])
             && this.activate ( i )
