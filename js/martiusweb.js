@@ -52,7 +52,7 @@ $('html').smoothScroll(400);
 
 // Open external links in new tabs
 $('a:link').each(function() {
-    if(this.href.substr(0, 4) == 'http')
+    if(this.href.indexOf(window.location.host) == -1)
         $(this).click(function(e) {
             window.open(this.href);
             e.preventDefault();
