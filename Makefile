@@ -9,7 +9,7 @@ bootstrap:
 	./${BOOTSTRAP_PATH}/node_modules/.bin/jshint ${BOOTSTRAP_PATH}/js/*.js --config ${BOOTSTRAP_PATH}/js/.jshintrc
 	./${BOOTSTRAP_PATH}/node_modules/.bin/jshint ${BOOTSTRAP_PATH}/js/tests/unit/*.js --config ${BOOTSTRAP_PATH}/js/.jshintrc
 	./${BOOTSTRAP_PATH}/node_modules/.bin/recess --compile ${BOOTSTRAP_LESS} > ${BOOTSTRAP}
-	#@./node_modules/.bin/recess --compile ${BOOTSTRAP_RESPONSIVE_LESS} > ${BOOTSTRAP_RESPONSIVE}
+	./${BOOTSTRAP_PATH}/node_modules/.bin/recess --compile ${BOOTSTRAP_RESPONSIVE_LESS} > ${BOOTSTRAP_RESPONSIVE}
 	cp ${BOOTSTRAP_PATH}/img/* img/
 	cp ${BOOTSTRAP_PATH}/js/*.js js/
 	cp ${BOOTSTRAP_PATH}/js/tests/vendor/jquery.js js/

@@ -27,10 +27,15 @@ header.container {
     color: @white;
     background-color: @midnightBlue;
 
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -470px;
+    @media (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -470px;
+    }
+    @media (min-width: 768px) and (max-width: 979px) {
+        margin-left: -362px;
+    }
     z-index: 1000;
 
     &.sticky {
@@ -113,7 +118,7 @@ div#sticky-wrap {
 }
 
 #push, footer.container {
-height: @footerHeight;
+    min-height: @footerHeight;
 }
 
 // Footer design
@@ -154,10 +159,12 @@ div.container[role="main"] {
 
 // Default timeline style
 .timelineSpineBackground(@color) {
-    background-image: -webkit-linear-gradient(90deg, @color 0%, @color 100%);
-    background-image: -moz-linear-gradient(90deg, @color 0%, @color 100%);
-    background-image: -o-linear-gradient(90deg, @color 0%, @color 100%);
-    background-image: linear-gradient(90deg, @color 0%, @color 100%);
+    @media (min-width: 980px) {
+        background-image: -webkit-linear-gradient(90deg, @color 0%, @color 100%);
+        background-image: -moz-linear-gradient(90deg, @color 0%, @color 100%);
+        background-image: -o-linear-gradient(90deg, @color 0%, @color 100%);
+        background-image: linear-gradient(90deg, @color 0%, @color 100%);
+    }
 }
 
 .timeline {
@@ -167,84 +174,93 @@ div.container[role="main"] {
         > li {
             list-style: none;
             width: 450px;
+            @media (max-width: 767px) {
+                width: auto;
+            }
             border: 1px @timelineBorderColor solid;
             border-radius: @containerRadius;
             margin: (@containerMargin * 0.5) 0;
             position: relative;
             box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 
-            > .arrow, .arrow:after {
-              position: absolute;
-              display: block;
-              width: 0;
-              height: 0;
-              border-color: transparent;
-              border-style: solid;
+            @media (max-width: 979px) {
+                margin: 1em auto;
             }
 
-            > .arrow {
-              border-width: @popoverArrowOuterWidth;
-            }
-
-            > .arrow:after {
-              border-width: @popoverArrowWidth;
-              content: "";
-            }
-
-            > .arrow:before {
-                content: '';
-                display: block;
-                position: relative;
-                bottom: 8px;
-                width: 8px;
-                height: 8px;
-                border: 3px white solid;
-                border-radius: 20px;
-                background-color: @timelinePointColor;
-            }
-
-            &:nth-child(odd) {
-                clear: left;
-                float: left;
+            @media (min-width: 980px) {
+                > .arrow, .arrow:after {
+                  position: absolute;
+                  display: block;
+                  width: 0;
+                  height: 0;
+                  border-color: transparent;
+                  border-style: solid;
+                }
 
                 > .arrow {
-                    top: 50%;
-                    right: -@popoverArrowOuterWidth;
-                    margin-top: -@popoverArrowOuterWidth;
-                    border-right-width: 0;
-                    border-left-color: #999; // IE8 fallback
-                    border-left-color: @timelineArrowBorderColor;
-                    &:after {
-                        right: 1px;
+                  border-width: @popoverArrowOuterWidth;
+                }
+
+                > .arrow:after {
+                  border-width: @popoverArrowWidth;
+                  content: "";
+                }
+
+                > .arrow:before {
+                    content: '';
+                    display: block;
+                    position: relative;
+                    bottom: 8px;
+                    width: 8px;
+                    height: 8px;
+                    border: 3px white solid;
+                    border-radius: 20px;
+                    background-color: @timelinePointColor;
+                }
+
+                &:nth-child(odd) {
+                    clear: left;
+                    float: left;
+
+                    > .arrow {
+                        top: 50%;
+                        right: -@popoverArrowOuterWidth;
+                        margin-top: -@popoverArrowOuterWidth;
                         border-right-width: 0;
-                        border-left-color: @popoverArrowColor;
-                        bottom: -@popoverArrowWidth;
-                    }
-                    &:before {
-                        left: 1px;
+                        border-left-color: #999; // IE8 fallback
+                        border-left-color: @timelineArrowBorderColor;
+                        &:after {
+                            right: 1px;
+                            border-right-width: 0;
+                            border-left-color: @popoverArrowColor;
+                            bottom: -@popoverArrowWidth;
+                        }
+                        &:before {
+                            left: 1px;
+                        }
                     }
                 }
-            }
 
-            &:nth-child(even) {
-                clear: right;
-                float: right;
+                &:nth-child(even) {
+                    clear: right;
+                    float: right;
 
-                > .arrow {
-                    top: 50%;
-                    left: -@popoverArrowOuterWidth;
-                    margin-top: -@popoverArrowOuterWidth;
-                    border-left-width: 0;
-                    border-right-color: #999; // IE8 fallback
-                    border-right-color: @timelineArrowBorderColor;
-                    &:after {
-                      left: 1px;
-                      bottom: -@popoverArrowWidth;
-                      border-left-width: 0;
-                      border-right-color: @popoverArrowColor;
-                    }
-                    &:before {
-                        right: 15px;
+                    > .arrow {
+                        top: 50%;
+                        left: -@popoverArrowOuterWidth;
+                        margin-top: -@popoverArrowOuterWidth;
+                        border-left-width: 0;
+                        border-right-color: #999; // IE8 fallback
+                        border-right-color: @timelineArrowBorderColor;
+                        &:after {
+                          left: 1px;
+                          bottom: -@popoverArrowWidth;
+                          border-left-width: 0;
+                          border-right-color: @popoverArrowColor;
+                        }
+                        &:before {
+                            right: 15px;
+                        }
                     }
                 }
             }

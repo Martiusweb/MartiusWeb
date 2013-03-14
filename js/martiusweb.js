@@ -60,20 +60,40 @@ $('a:link').each(function() {
 });
 
 // Sticky header :)
-var $header = $('header'), $sticky = $('#sticky-wrap');
-var origOffsetY = $('header .navbar')[0].offsetTop - 8;
-$sticky.css('paddingTop', $header.height());
+var sticky = false, $sticky = $('#sticky-wrap');;
 
-$(window).on('scroll', function() {
-  if(window.scrollY >= origOffsetY) {
-        $header.addClass('sticky');
-        $header.css('top', '-' + origOffsetY + 'px');
-  }
-  else {
-        $header.removeClass('sticky');
-        $header.css('top', 0);
-  }
+var setSticky = function() {
+    var $header = $('header');
+    var origOffsetY = $('header .navbar')[0].offsetTop - 8;
+    $sticky.css('paddingTop', $header.height());
+
+    $(window).on('scroll.sticky', function() {
+      if(window.scrollY >= origOffsetY) {
+            $header.addClass('sticky');
+            $header.css('top', '-' + origOffsetY + 'px');
+      }
+      else {
+            $header.removeClass('sticky');
+            $header.css('top', 0);
+      }
+    });
+
+    Sticky = true;
+};
+
+if($(document).width() > 767) {
+    setSticky();
+}
+$(window).on('resize', function() {
+    if($(document).width() > 767) {
+        if(!sticky) {
+            setSticky();
+        }
+    }
+    else {
+        $('#sticky-wrap').css('paddingTop', 0);
+        $(window).off('scroll.sticky');
+    }
 });
 
 })(window.jQuery);
-
