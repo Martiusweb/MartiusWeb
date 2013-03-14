@@ -73,14 +73,16 @@
           , scrollHeight = this.$scrollElement[0].scrollHeight || this.$body[0].scrollHeight
           ,  maxScroll = scrollHeight - this.$scrollElement.height()
 
-        if(maxScroll == 0) maxScroll = 2300
+        if(maxScroll == 0) {
+            scrollHeight = 2885;
+            maxScroll = scrollHeight - this.$scrollElement.height();
+        }
 
         var offsets = this.offsets
           , targets = this.targets
           , activeTarget = this.activeTarget
           , i
 
-        console.log(scrollTop, maxScroll);
         if (scrollTop >= maxScroll) {
           return activeTarget != (i = targets.last()[0])
             && this.activate ( i )
