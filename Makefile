@@ -7,6 +7,8 @@ BOOTSTRAP_RESPONSIVE_LESS = ./less/responsive.less
 minassets:
 	./${BOOTSTRAP_PATH}/node_modules/.bin/uglifyjs -nc js/scrollspy.js > js/scrollspy.min.js
 	./${BOOTSTRAP_PATH}/node_modules/.bin/uglifyjs -nc js/martiusweb.js > js/martiusweb.min.js
+	./${BOOTSTRAP_PATH}/node_modules/.bin/recess --compress ${BOOTSTRAP} > css/styles.min.css
+	./${BOOTSTRAP_PATH}/node_modules/.bin/recess --compress ${BOOTSTRAP_RESPONSIVE} > css/styles-responsive.min.css
 
 bootstrap:
 	mkdir -p ./css ./js ./img

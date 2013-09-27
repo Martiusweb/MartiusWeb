@@ -5,6 +5,8 @@
 # Generated files
 css/styles.css
 css/styles-responsive.css
+css/*.min.css
 js/bootstrap*
 js/jquery.js
+js/*.min.js
 img/glyphicons-halflings*.png
