@@ -12,6 +12,9 @@
     font-family: "Roboto", @sansFontFamily;
     font-weight: 100;
 }
+.subtitleFont {
+    font-family: "Lato", @sansFontFamily;
+}
 .ob {
   direction: rtl;
   font-family: Monospace;
@@ -52,6 +55,9 @@ header.container {
     h1 + p {
         text-align: center;
         font-size: 19px;
+
+        .subtitleFont;
+        font-weight: 300;
     }
 
     // Reset navbar styles, might be a good idea to clean navbar instead of
@@ -274,6 +280,8 @@ div.container[role="main"] {
                 background-color: @timelineColor;
                 color: @white;
                 font-size: 1.2em;
+
+                .subtitleFont;
             }
 
             article {

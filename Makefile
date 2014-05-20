@@ -4,6 +4,8 @@ BOOTSTRAP_LESS = ./less/styles.less
 BOOTSTRAP_RESPONSIVE = ./css/styles-responsive.css
 BOOTSTRAP_RESPONSIVE_LESS = ./less/responsive.less
 
+all: bootstrap minassets
+
 minassets:
 	./${BOOTSTRAP_PATH}/node_modules/.bin/uglifyjs -nc js/scrollspy.js > js/scrollspy.min.js
 	./${BOOTSTRAP_PATH}/node_modules/.bin/uglifyjs -nc js/martiusweb.js > js/martiusweb.min.js
