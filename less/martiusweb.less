@@ -15,11 +15,22 @@
 .subtitleFont {
     font-family: "Lato", @sansFontFamily;
 }
+.blockTitle {
+    margin: 0;
+    padding: 0 .5em;
+    text-align: center;
+    border: 1px @white solid;
+    border-radius: @containerRadius @containerRadius 0 0;
+    background-color: @timelineColor;
+    color: @white;
+
+    .subtitleFont;
+}
 .ob {
-  direction: rtl;
-  font-family: Monospace;
-  font-size: 0.8em;
-  unicode-bidi: bidi-override;
+    direction: rtl;
+    font-family: Monospace;
+    font-size: 0.8em;
+    unicode-bidi: bidi-override;
 }
 
 // Containers
@@ -149,17 +160,57 @@ footer.container {
 div.container[role="main"] {
     margin: @containerMargin auto;
 
-    section {
+    section, article {
         margin-top: -68px;
         padding-top: 68px;
 
         > h1 {
             .titleFont;
             text-align: center;
-            text-transform: uppercase;
-
             color: @timelineColor;
         }
+    }
+
+    section > h1 {
+        text-transform: uppercase;
+    }
+
+    article {
+        font-size: @fontSizeLarge;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+
+        .tldr {
+            h2, h3, h4 {
+                &:first-child {
+                    .blockTitle;
+
+                    font-size: @fontSizeLarge;
+                    background-color: @miscColor;
+                }
+            }
+
+            p, ul {
+                padding: (@baseLineHeight - 1) / 2;
+                line-height: @baseLineHeight;
+            }
+
+            margin: 0 0 @baseLineHeight / 2;
+            border: 1px solid @miscColor;
+            .border-radius(@baseBorderRadius);
+        }
+
+        footer {
+            &:before { content: "— Foot notes:"; }
+            color: @grayLight;
+        }
+    }
+
+    article > aside {
+        font-size: @fontSizeSmall;
+        margin: 15px;
+        text-align: center;
     }
 }
 
@@ -172,6 +223,7 @@ div.container[role="main"] {
         background-image: linear-gradient(90deg, @color 0%, @color 100%);
     }
 }
+
 
 .timeline {
     > ol {
@@ -272,16 +324,8 @@ div.container[role="main"] {
             }
 
             h2 {
-                margin: 0;
-                padding: 0 .5em;
-                text-align: center;
-                border: 1px @white solid;
-                border-radius: @containerRadius @containerRadius 0 0;
-                background-color: @timelineColor;
-                color: @white;
+                .blockTitle;
                 font-size: 1.2em;
-
-                .subtitleFont;
             }
 
             article {

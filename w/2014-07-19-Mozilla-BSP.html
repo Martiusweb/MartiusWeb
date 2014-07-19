@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <title>Martin Richard | MartiusWeb</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="author" content="Martin Richard">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+  <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="stylesheet" href="css/styles-responsive.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro|Lato:300|Roboto:100">
+</head>
+<body data-spy="scroll" data-target="header.container .navbar"
+    data-offset="68">
+<div id="sticky-wrap" >
+    <a id="home"></a>
+    <header class="container">
+        <section>
+            <h1>Martin Richard</h1>
+            <p>Hello, I'm Martin, and this is my webpage.</p>
+        </section>
+
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-inner">
+            <ul class="nav">
+                <li><a href="/">Go back to my home page</a></li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container" role="main">
+        <article>
+            <h1>I made a patch for Mozilla, and you can do it too</h1>
+            <aside>Saturday, July 19th 2014</aside>
+            <p>In this article, I will tell how I contributed code to Mozilla
+            during a Bug Squashing Party. I hope to provide some tips and
+            advices about how to start contributing to a Mozilla project (or any
+            other open-source project). I will talk about Firefox and Servo,
+            which, I think, are somehow representative of two common ways of
+            writing and submitting patches.</p>
+
+            <p>The bug squashing party was a two-days events which took place
+            in the Paris office of Mozilla. We were mentored by experimented
+            contributors (actually, employees) to fix bugs on Mozilla products.
+            I always felt that contributing to an open-source project was quite
+            intimidating: I didn't want to bother people with patches they
+            could have written themselves faster or better, nor with writing
+            documentation in an approximative English. That's why I decided to
+            join the event, knowing that people would be available to help
+            me.</p>
+
+            <h2>Getting started</h2>
+            <p>I wanted to be a bit proactive, and be ready to write code
+            during the event, so I built Firefox to hack stuff a few days
+            before the event. I wanted to write a patch that was trivial
+            enough to be done quickly, once I could find my feet in this huge
+            codebase.</p>
+
+            <p>I started by looking for three things: the code, instructions
+            about how to build the project, and instructions about how to
+            contribute. For a project as large as Firefox, it's easy to find
+            a lot of documentation using google, with the downside that
+            sometimes, it's outdated, or slightly incorrect, or not the best
+            resource available. For smaller projects, github or bitbucket can
+            be good entry points. Usually we can find a <code>README</code> or
+            a <code>CONTRIBUTING</code> file in the repository.</p>
+
+            <p>Most of the technical documentation from Mozilla is located on
+            MDN, the Mozilla Developer Network. I spent around 15 minutes to
+            compare several pages and check their history (MDN is a wiki) to be
+            sure to read stuff that were up to date.</p>
+
+            <p>The build system of Firefox is quite complex, but building
+            firefox is easy
+            (<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions">look
+            at the build instructions</a>), and there is plenty of
+            documentation to get started in the <a
+            href="https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide">developer
+            guide</a>. It is not always that easy, and can be somewhat
+            frustrating, knowing that, I chose to prepare my build a day or two
+            before actually trying to write a patch, in order not to blow all
+            my motivation away. Indeed, I believe that managing my motivation
+            when diging into an unknown code base on my spare time is
+            important, because it's easy to fell overwhelmed by all the details
+            I've to get familiar with, from the structure to the coding
+            style.</p>
+
+            <p>I wrote a patch that makes Firefox play a sound when the user
+            adds a new bookmark. It's not really interresting, but trying to do
+            something trivial (even if useless) allows to have a first
+            "hands-on" experience.</p>
+
+            <div class="tldr">
+                <h2>Take-aways:</h2>
+                <ul>
+                    <li>For a small project, start by looking on github, for
+                    a larger project, look for a wiki, use google, and check
+                    the date of the document you are reading to be sure it's up
+                    to date.</li>
+                    <li>This first step takes some time, and building a project
+                    can be frustrating, so plan to do it something like a day
+                    or two before the moment when you want to write code, so
+                    you don't spend all your motivation on this step.</li>
+                    <li>Write a first patch to get started, even if what you
+                    change is useless. For instance, you can change the text
+                    displayed somewhere, add a dummy button or echo a parameter
+                    in the console.</li>
+                </ul>
+            </div>
+
+            <h2>Writing a patch</h2>
+            <p>I can not add a feature to Firefox as I would do it to a small
+            project. For a software of that size, adding feature is out of my
+            reach while I'm sure that a patch that fix a bug can be useful to
+            someone.</p>
+            <p>Mozilla, as many other projects, centralize everything in a bug
+            tracker. Experienced contributors often label some bugs as
+            <em>Good first bugs</em>. They are non-urgent bugs which are easy
+            to solve, and often documented enough so a newcommer can quickly
+            understand what to do to solve it. Some bugs are also mentored,
+            which means that an experienced contributor is willing to assist
+            someone with less experience in solving it. That was the kind of
+            bug we where looking for during the bug squashing party.</p>
+            <p>Now, I could search for such a bug in the big thing that is
+            <a href="https://bugzilla.mozilla.org/">bugzilla</a>, but it's
+            really messy (maybe even more than the codebase itself). But thanks
+            to <a href="http://www.joshmatthews.net/bugsahoy/">Bugs Ahoy</a>
+            (an alternative frontend for bugzilla), finding mentored bugs is
+            now piece of cake.</p>
+            <p>I chose to work on Servo, because I had no experience with Rust
+            (the new programming language made by Mozilla) and I was in a room
+            with two of the main contributors. At home, I would probably have
+            chosen something easier, in a language I knew at least a bit.
+            I learned something here: whatever the bug you pick, you can be
+            100% sure that you will dig into code you don't know, that will
+            do things you have no idea how to implement, and use libraries and
+            APIs you nerver eard of. It's a bit intimidating, but it's where
+            the magic happens: with a bit of methodology, you will learn
+            a lot! Just think about how rewarding it will be to have one or two
+            <em>Eureka</em> moments!</p>
+            <p>Bugs for Servo are not on Bugzilla but on github, along with the
+            code (we can still use Bugs Ahoy). I spent some time reading the
+            description of most of the bugs reported as easy. Some bugs were
+            partially fixed by contributors who did not finish the job, but
+            I chose a fresh new bug.</p>
+            <p>The description of a bug is usually filled with details about
+            the current implementation and hints about where to start looking.
+            Unfortunatly at this point I had no clue of what they were talking
+            about, so I chose to read the definition of the functions and
+            methods they mentioned, then re-read comments on the ticket 3 or
+            4 times.</p>
+            <p>I Used <code>ag</code> (aka
+            <a href="https://github.com/ggreer/the_silver_searcher">the silver
+                searcher</a>, a faster <code>grep</code>) to look for function
+            or class names that are mentioned in the bug ticket. I sometimes
+            tried to guess the name of a symbol I was looking for (say
+            <code>HyperlinkElement</code> or <code>AnchorElement</code> for the
+            type representing the <code>&lt;a&gt;</code> element). Firefox
+            and Servo, as well as many other open source projects of this size
+            have dedicated tools that help to search for symbols in the code
+            quickly. For instance <a href="http://mxr.mozilla.org/">MXR
+            (Mozilla Cross Reference)</a> allows you to search for files, class
+            or function names so you know where they are defined and where they
+            are used. Also, instead of using a debugger, I simply printed
+            variables and debug message on the console (a simple
+            <code>println!()</code>) to see if a code path
+            was reached or to see the value of a given variable.</p>
+            <p>After that, I <em>asked questions</em> to Josh Matthews,
+            a mentor of the bug who was in the room with us. It was really
+            convenient to talk face to face with Josh, but I knew that I could
+            ask questions on at least to different channels: the comments of
+            the bug and IRC. The latter is great to ask questions hoping to get
+            answers quickly.</p>
+            <p>I find especially useful to asks questions about the purpose of
+            a piece of code (Why is it here? Why does it do what it does
+            instead of something else? Does it do what I think it does?) or
+            about features I might need but don't know if they are available
+            (Is there a code implementing a data structure I'll need? Is
+            there a method that perform basic checks on data?). At this
+            point, it's not likely that someone knows exactly how to solve the
+            bug. If there was, the bug would be solved. It's therefore up to me
+            find and try to implement a solution before proposing it.</p>
+            <p>Submitting a patch to Servo is easy, since they follow the
+            github <em>pull-request</em> workflow. It's not that easy on
+            Firefox, but now we know that we can <em>ask</em>.</p>
+
+            <div class="tldr">
+                <h2>Take-aways:</h2>
+                <ul>
+                    <li>On a large project, look for mentored and good first
+                    bugs: they have been selected by experienced people for new
+                    contributors.</li>
+                    <li>If you want to contribute to Mozilla, use
+                    <a href="http://www.joshmatthews.net/bugsahoy/">Bugs
+                        Ahoy</a>, not bugzilla.</li>
+                    <li>You are not an expert, and you probably don't know
+                    a thing about what you will deal with at first. It's okay,
+                    that's how you'll learn!</li>
+                    <li>Ask questions on IRC about existing code and things you
+                    don't understand, but try to find solutions by
+                    yourself.</li>
+                    <li>Use simple command line tools, such as
+                    <code>grep</code> or a better alternative. Large projects
+                    often provide a "Cross-reference" website (like <a
+                        href="http://mxr.mozilla.org/">MXR</a>) wich allows to
+                    quickly search for a symbol (function or class name, for
+                    instance) in the code.</li>
+                    <li>Use the weapons you master: if you don't know how to
+                    use a debbuger, use <code>print</code> statements in the
+                    code to understand what's happening.</li>
+                </ul>
+            </div>
+
+            <h2>The Bug Squashing Party was awesome!</h2>
+            <p>Now, a final word about the Bug Squashing Party.</p>
+            <p>As far as I know, it's the first event of this kind organized by
+            Mozilla, and it was both a great and successful idea. Mozillians,
+            ask the <a href="http://mozfr.org/">mozilla francophone</a>
+            community about their experience and organize a bug squashing party
+            in your city.</p>
+            <p>I enjoyed to discover that anyone can contribute, even those
+            that were not experienced at all. For instance, a friend of mine
+            who only knew about PHP added a couple of features to a python tool
+            automating common tasks done with bugzilla. And he was helped by
+            someone who knew Python, but knew nothing of bugzilla before.</p>
+            <p>As of me, I don't know if I'll contribute much on mozilla
+            projects on my spare time, but I'm now more confident in what I can
+            do to contribute to open source projects, being something as simple
+            as answering a question on a mailing list or filling a bug. That's
+            part of why I like Mozilla: they can give a lot to open source, in
+            subtle ways too.</p>
+            <p>As a final note, Nicholas Nethercote (Mr Memshrink of Firefox)
+            posted a note about
+            <a href="https://blog.mozilla.org/nnethercote/2014/07/10/dipping-my-toes-in-the-servo-waters/">its first contribution to Servo</a>, and it's worth a read.</p>
+       </article>
+    </div>
+
+    <div id="push"></div>
+</div>
+
+<footer class="container">
+    <div class="row">
+        <section class="span6">
+            <p>This is the webpage of Martin Richard (edited on June 27 2014).</p>
+            <p>My nickname is <em>Martius</em>, and often <em>Martiusweb</em>
+            online.</p>
+        </section>
+        <section class="span6">
+            <p>Code is under GNU/GPLv2, content is under CC BY-NC-SA.</p>
+            <p>Built with
+                <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>,
+                GNU/Make and git.
+                Colors borrowed from
+                <a href="http://designmodo.github.com/Flat-UI/">Flat UI</a>.
+        </section>
+    </div>
+</footer>
+<script
+src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+<script src="js/martiusweb.min.js"></script>
+</body>
+</html>
