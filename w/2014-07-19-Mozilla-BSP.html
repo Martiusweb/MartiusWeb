@@ -165,10 +165,14 @@
             quickly. For instance <a href="http://mxr.mozilla.org/">MXR
             (Mozilla Cross Reference)</a> allows you to search for files, class
             or function names so you know where they are defined and where they
-            are used. Also, instead of using a debugger, I simply printed
-            variables and debug message on the console (a simple
-            <code>println!()</code>) to see if a code path
-            was reached or to see the value of a given variable.</p>
+            are used. If you happen to work on a bug on mozilla-central, there
+            is also the awesome <a href="http://dxr.mozilla.org/">DXR</a>
+            available to play with. In addition to what can be done with MXR,
+            it will let you perform structural queries such as "Find all the
+            callers of this function". Also, instead of using a debugger, I
+            simply printed variables and debug message on the console (a simple
+            <code>println!()</code>) to see if a code path was reached or to
+            see the value of a given variable.</p>
             <p>After that, I <em>asked questions</em> to Josh Matthews,
             a mentor of the bug who was in the room with us. It was really
             convenient to talk face to face with Josh, but I knew that I could
@@ -205,8 +209,9 @@
                     yourself.</li>
                     <li>Use simple command line tools, such as
                     <code>grep</code> or a better alternative. Large projects
-                    often provide a "Cross-reference" website (like <a
-                        href="http://mxr.mozilla.org/">MXR</a>) wich allows to
+                    often provide a "Cross-reference" website (like
+                    <a href="http://mxr.mozilla.org/">MXR</a>, or
+                    <a href="http://dxr.mozilla.org">DXR</a>) wich allows to
                     quickly search for a symbol (function or class name, for
                     instance) in the code.</li>
                     <li>Use the weapons you master: if you don't know how to
