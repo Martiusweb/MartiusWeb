@@ -202,8 +202,12 @@ div.container[role="main"] {
         }
 
         footer {
-            &:before { content: "— Foot notes:"; }
+            &:before { display:block; content: "— Foot notes:"; }
             color: @grayLight;
+        }
+
+        footer.ack {
+            &:before { content: "— Acknowledgement:"; }
         }
     }
 
