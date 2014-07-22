@@ -161,9 +161,6 @@ div.container[role="main"] {
     margin: @containerMargin auto;
 
     section, article {
-        margin-top: -68px;
-        padding-top: 68px;
-
         > h1 {
             .titleFont;
             text-align: center;
@@ -171,11 +168,16 @@ div.container[role="main"] {
         }
     }
 
-    section > h1 {
-        text-transform: uppercase;
+    section {
+        margin-top: -68px;
+        padding-top: 68px;
+
+        > h1 {
+            text-transform: uppercase;
+        }
     }
 
-    article {
+    > article {
         font-size: @fontSizeLarge;
         width: 90%;
         margin-left: auto;
