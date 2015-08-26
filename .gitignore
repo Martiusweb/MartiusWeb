@@ -10,6 +10,7 @@ js/bootstrap*
 js/jquery.js
 js/*.min.js
 img/glyphicons-halflings*.png
+*.gz
 
 # Python
 .ropeproject
