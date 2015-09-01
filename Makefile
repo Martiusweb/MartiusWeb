@@ -11,7 +11,7 @@ gzip:
 	gzip -9 -f -k t/*.html 2>&1 || true
 	gzip -9 -f -k w/*.html 2>&1 || true
 	gzip -9 -f -k css/*.min.css 2>&1 || true
-	gzip -9 -f -k js/*.min.css 2>&1 || true
+	gzip -9 -f -k js/*.min.js 2>&1 || true
 
 minassets:
 	./${BOOTSTRAP_PATH}/node_modules/.bin/uglifyjs -nc js/scrollspy.js > js/scrollspy.min.js
